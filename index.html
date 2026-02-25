@@ -1,0 +1,524 @@
+<!doctype html>
+<!-- Original layout based on CodingNepal template; refactored to Vite + modular JS architecture -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Food Coffee</title>
+
+    <!-- icon link  -->
+    <link rel="icon" type="image/svg+xml" href="public/Star Food.svg" />
+
+    <!-- Font Awesome (icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Снег отображается зимой автоматически -->
+    <div class="snow-container"></div>
+
+    <!-- Ёлка (отображается зимой автоматически) -->
+    <div id="tree" class="tree hidden">
+      <div class="lights"></div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header>
+      <nav class="navbar">
+        <a href="#" class="nav-logo">
+          <h2 class="logo-text">
+            <span>🌟</span> <span data-i18n="star-food"></span>
+          </h2>
+        </a>
+
+        <!-- Глобус смена языка -->
+        <div class="dropdown">
+          <button class="lang-toggle">
+            <i class="fa-solid fa-globe"></i>
+          </button>
+
+          <div class="lang-dropdown" hidden>
+            <a href="#" class="lang-btn" data-lang="en">English</a>
+            <a href="#" class="lang-btn" data-lang="ru">Русский</a>
+            <a href="#" class="lang-btn" data-lang="tj">Тоҷикӣ</a>
+          </div>
+        </div>
+
+        <ul class="nav-menu">
+          <button
+            id="menu-close-button"
+            class="fas fa-times"
+            aria-label="Close menu"
+          ></button>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link" data-i18n="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link" data-i18n="about">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#menu" class="nav-link" data-i18n="menu">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a href="#testimonials" class="nav-link" data-i18n="testimonials"
+              >Testimonials</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#gallery" class="nav-link" data-i18n="gallery">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link" data-i18n="contact">Contact</a>
+          </li>
+        </ul>
+
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            data-theme-toggle
+            aria-label="Toggle theme"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button
+            id="menu-open-button"
+            class="fas fa-bars"
+            aria-label="Open menu"
+          ></button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero section -->
+      <section class="hero-section">
+        <div class="section-content">
+          <div class="hero-details">
+            <h2 class="title" data-i18n="star-food">Star Food</h2>
+            <h3 class="subtitle" data-i18n="hero-subtitle">
+              Make your day great with our special coffee!
+            </h3>
+            <p class="description" data-i18n="hero-description">
+              Welcome to our coffee paradise, where every bean tells a story and
+              every cup sparks joy.
+            </p>
+
+            <div class="buttons">
+              <a href="#contact" class="button order-now" data-i18n="order-now"
+                >Order Now</a
+              >
+              <a
+                href="#contact"
+                class="button contact-us"
+                data-i18n="contact-us"
+                >Contact Us</a
+              >
+            </div>
+          </div>
+          <div class="hero-image-wrapper">
+            <img
+              src="/coffee-hero-section.png"
+              alt="Coffee"
+              class="hero-image"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- About section -->
+      <section class="about-section" id="about">
+        <div class="section-content">
+          <div class="about-image-wrapper">
+            <img src="/about-image.jpg" alt="About" class="about-image" />
+          </div>
+          <div class="about-details">
+            <h2 class="section-title" data-i18n="about-us">About Us</h2>
+            <p class="text" data-i18n="about-description">
+              At Star Food, we are passionate about delivering the finest coffee
+              experience. Our journey began with a simple love for coffee and a
+              desire to share that passion with the world. We source our beans
+              from the best coffee-growing regions, ensuring that every cup is
+              rich in flavor and aroma. Our team of skilled baristas is
+              dedicated to crafting the perfect brew, whether it's a classic
+              espresso or a creative specialty drink. We believe that coffee is
+              more than just a beverage; it's a moment of connection and joy.
+              Join us at Star Food and discover the art of coffee like never
+              before.
+            </p>
+            <div class="social-link-list">
+              <a
+                href="https://www.facebook.com/profile.php?id=100083182120149"
+                target="_blank"
+                class="social-link"
+                aria-label="Facebook"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/star.food.tj/"
+                target="_blank"
+                class="social-link"
+                aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.youtube.com/@food_star/videos"
+                target="_blank"
+                class="social-link"
+                aria-label="YouTube"
+              >
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu section -->
+      <section class="menu-section" id="menu">
+        <h2 class="section-title" data-i18n="our-menu">Our Menu</h2>
+        <div class="section-content">
+          <ul class="menu-list">
+            <li class="menu-item">
+              <img
+                src="/hot-beverages.png"
+                alt="Hot Beverages"
+                class="menu-image"
+              />
+              <div class="menu-details">
+                <h3 class="name" data-i18n="hot-beverages">Hot Beverages</h3>
+                <p class="text" data-i18n="hot-beverages-description">
+                  Wide range of Steaming hot coffee to make you fresh and light.
+                </p>
+              </div>
+            </li>
+            <li class="menu-item">
+              <img
+                src="/cold-beverages.png"
+                alt="Cold Beverages"
+                class="menu-image"
+              />
+              <div class="menu-details">
+                <h3 class="name" data-i18n="cold-beverages">Cold Beverages</h3>
+                <p class="text" data-i18n="cold-beverages-description">
+                  Creamy and frothy cold coffee to make you cool.
+                </p>
+              </div>
+            </li>
+            <li class="menu-item">
+              <img
+                src="/refreshment.png"
+                alt="Refreshment"
+                class="menu-image"
+              />
+              <div class="menu-details">
+                <h3 class="name" data-i18n="refreshment">Refreshment</h3>
+                <p class="text" data-i18n="refreshment-description">
+                  Fruit and icy refreshing drink to make feel refresh.
+                </p>
+              </div>
+            </li>
+            <li class="menu-item">
+              <img
+                src="/special-combo.png"
+                alt="Special Combos"
+                class="menu-image"
+              />
+              <div class="menu-details">
+                <h3 class="name" data-i18n="special-combos">Special Combos</h3>
+                <p class="text" data-i18n="special-combos-description">
+                  Your favorite eating and drinking combinations.
+                </p>
+              </div>
+            </li>
+            <li class="menu-item">
+              <img src="/desserts.png" alt="Dessert" class="menu-image" />
+              <div class="menu-details">
+                <h3 class="name" data-i18n="dessert">Dessert</h3>
+                <p class="text" data-i18n="dessert-description">
+                  Satiate your palate and take you on a culinary treat.
+                </p>
+              </div>
+            </li>
+            <li class="menu-item">
+              <img
+                src="/burger-frenchfries.png"
+                alt="Burger & French Fries"
+                class="menu-image"
+              />
+              <div class="menu-details">
+                <h3 class="name" data-i18n="burger-french-fries">
+                  Burger & French Fries
+                </h3>
+                <p class="text" data-i18n="burger-french-fries-description">
+                  Quick bites to satisfy your small size hunger.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Testimonials section -->
+      <section class="testimonials-section" id="testimonials">
+        <h2
+          data-i18="testimonials"
+          class="section-title"
+          data-i18n="testimonials"
+        >
+          Testimonials
+        </h2>
+        <div class="section-content">
+          <div class="slider-container swiper">
+            <div class="slider-wrapper">
+              <ul class="testimonials-list swiper-wrapper">
+                <li class="testimonial swiper-slide">
+                  <i class="fa-solid fa-quote-left"></i>
+                  <h3 data-i18n="murodova-shukrona" class="name">
+                    Murodova Shukrona
+                  </h3>
+                  <i class="feedback" data-i18n="loved-the-french-roast"
+                    >"Loved the French roast. Perfectly balanced and rich. Will
+                    order again!"</i
+                  >
+                </li>
+                <li class="testimonial swiper-slide">
+                  <i class="fa-solid fa-quote-left"></i>
+                  <h3 data-i18n="karimzoda-somon" class="name">
+                    Karimzoda Somon
+                  </h3>
+                  <i class="feedback" data-i18n="great-espresso-blend"
+                    >"Great espresso blend! Smooth and bold flavor. Fast
+                    shipping too!"</i
+                  >
+                </li>
+                <li class="testimonial swiper-slide">
+                  <i class="fa-solid fa-quote-left"></i>
+                  <h3 data-i18n="aliyeva-saida" class="name">Aliyeva Saida</h3>
+                  <i class="feedback" data-i18n="fantastic-mocha-flavor"
+                    >"Fantastic mocha flavor. Fresh and aromatic. Quick
+                    shipping!"</i
+                  >
+                </li>
+                <li class="testimonial swiper-slide">
+                  <i class="fa-solid fa-quote-left"></i>
+                  <h3 data-i18n="rustamov-halim" class="name">
+                    Rustamov Halim
+                  </h3>
+                  <i class="feedback" data-i18n="excellent-quality"
+                    >"Excellent quality! Fresh beans and quick delivery. Highly
+                    recommend."</i
+                  >
+                </li>
+                <li class="testimonial swiper-slide">
+                  <i class="fa-solid fa-quote-left"></i>
+                  <h3 data-i18n="rajabova-safia" class="name">
+                    Rajabova Safia
+                  </h3>
+                  <i class="feedback" data-i18n="best-decaf"
+                    >"Best decaf I've tried! Smooth and flavorful. Arrived
+                    promptly."</i
+                  >
+                </li>
+              </ul>
+
+              <div class="swiper-pagination"></div>
+              <div class="swiper-slide-button swiper-button-prev"></div>
+              <div class="swiper-slide-button swiper-button-next"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery section -->
+      <section class="gallery-section" id="gallery">
+        <h2 class="section-title" data-i18n="gallery">Gallery</h2>
+        <div class="section-content">
+          <ul class="gallery-list">
+            <li class="gallery-item">
+              <img
+                src="/gallery-1.png"
+                alt="Gallery Image"
+                class="gallery-image"
+              />
+            </li>
+            <li class="gallery-item">
+              <img
+                src="/gallery-2.png"
+                alt="Gallery Image"
+                class="gallery-image"
+              />
+            </li>
+            <li class="gallery-item">
+              <img
+                src="/gallery-3.jpg"
+                alt="Gallery Image"
+                class="gallery-image"
+              />
+            </li>
+            <li class="gallery-item">
+              <img
+                src="/gallery-4.jfif"
+                alt="Gallery Image"
+                class="gallery-image"
+              />
+            </li>
+            <li class="gallery-item">
+              <img
+                src="/gallery-5.webp"
+                alt="Gallery Image"
+                class="gallery-image"
+              />
+            </li>
+            <li class="gallery-item">
+              <img
+                src="/gallery-6.png"
+                alt="Gallery Image"
+                class="gallery-image"
+              />
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contact section -->
+      <section class="contact-section" id="contact">
+        <h2 class="section-title" data-i18n="contact-us">Contact Us</h2>
+        <div class="section-content">
+          <ul class="contact-info-list">
+            <li class="contact-info">
+              <i class="fa-solid fa-location-crosshairs"></i>
+              <p data-i18n="bokhtar-city">Bokhtar City</p>
+            </li>
+            <li class="contact-info">
+              <i class="fa-regular fa-envelope"></i>
+              <p data-i18n="info-email">info@star-food.com</p>
+            </li>
+            <li class="contact-info">
+              <i class="fa-solid fa-phone"></i>
+              <p data-i18n="phone-number">(123) 456-78909</p>
+            </li>
+            <li class="contact-info">
+              <i class="fa-regular fa-clock"></i>
+              <p data-i18n="monday-friday">
+                Monday - Friday: 9:00 AM - 5:00 PM
+              </p>
+            </li>
+            <li class="contact-info">
+              <i class="fa-regular fa-clock"></i>
+              <p data-i18n="saturday">Saturday: 10:00 AM - 3:00 PM</p>
+            </li>
+            <li class="contact-info">
+              <i class="fa-regular fa-clock"></i>
+              <p data-i18n="sunday">Sunday: Closed</p>
+            </li>
+            <li class="contact-info">
+              <i class="fa-solid fa-globe"></i>
+              <p data-i18n="website">star.food.tj</p>
+            </li>
+          </ul>
+
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            class="contact-form"
+          >
+            <input
+              type="hidden"
+              name="access_key"
+              value="d7d9f50d-d271-4223-8d50-c64367ea7142"
+            />
+
+            <input
+              type="text"
+              name="name"
+              class="form-input"
+              data-i18n="form.name"
+              data-i18n-attr="placeholder"
+              placeholder="Your name"
+              required
+            />
+
+            <input
+              type="email"
+              name="email"
+              class="form-input"
+              data-i18n="form.email"
+              data-i18n-attr="placeholder"
+              placeholder="Your email"
+              required
+            />
+
+            <input
+              type="tel"
+              name="phone"
+              class="form-input"
+              data-i18n="form.phone"
+              data-i18n-attr="placeholder"
+              placeholder="Your phone number"
+              required
+            />
+
+            <textarea
+              name="message"
+              class="form-input"
+              data-i18n="form.message"
+              data-i18n-attr="placeholder"
+              placeholder="Your message"
+              required
+            ></textarea>
+
+            <button
+              data-i18n="submit"
+              type="submit"
+              class="button submit-button"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Footer section -->
+      <footer class="footer-section">
+        <div class="section-content">
+          <p class="copyright-text" data-i18n="star-food">Star Food</p>
+
+          <div class="social-link-list">
+            <a
+              href="https://www.facebook.com/profile.php?id=100083182120149"
+              target="_blank"
+              class="social-link"
+              aria-label="Facebook"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/star.food.tj/"
+              target="_blank"
+              class="social-link"
+              aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.youtube.com/@food_star/videos"
+              target="_blank"
+              class="social-link"
+              aria-label="YouTube"
+            >
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" data-scroll-top aria-label="Scroll to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

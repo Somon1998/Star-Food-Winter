@@ -1,0 +1,39 @@
+/* Новогодняя ёлка */
+.tree {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 100px;
+  background: green;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: 5;
+}
+
+.lights {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  height: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.lights::before {
+  content: "🎄✨🎁✨🎄";
+  animation: blink 1s infinite alternate;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
