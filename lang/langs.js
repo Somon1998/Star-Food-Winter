@@ -4,7 +4,7 @@ function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem("lang", lang);
 
-  fetch(`/lang/${lang}.json`) // <-- убедись что папка именно public/lang/
+  fetch(`lang/${lang}.json`) // <-- убедись что папка именно public/lang/
     .then((res) => {
       if (!res.ok) throw new Error(`Language file not found: ${lang}`);
       return res.json();
