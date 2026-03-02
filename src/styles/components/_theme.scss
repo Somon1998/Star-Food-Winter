@@ -1,0 +1,31 @@
+.navbar .theme-toggle {
+  position: absolute;
+  right: 0rem; // отступ справа
+  top: 12rem; // немного ниже header
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--white-color);
+  transition: 0.3s ease;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    font-size: 15px; // чуть меньше на мобильных устройствах
+    top: 10rem; // чуть выше на мобильных устройствах
+    right: 0rem; // меньше отступ справа на мобильных устройствах
+  }
+}
+
+.navbar .theme-toggle:hover {
+  transform: translateY(-1px);
+  transform: rotate(180deg);
+  color: var(--secondary-color);
+}
+
+.navbar .theme-toggle:active {
+  transform: scale(0.98);
+}
